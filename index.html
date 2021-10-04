@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub作者所有專案</title>
+
+
+    <link rel="icon" href="images/github_icon.svg">
+
+    <meta name="author" content="chek">
+    <meta name="copyright" content="chek">
+    <meta name="generator" content="chek">
+    <meta name="description" content="GitHub作者所有專案">
+    <meta name="keywords" content="GitHub Repo,GitHub作者所有專案">
+
+    <meta property="og:title" content="GitHub作者所有專案">
+    <meta property="og:description" content="GitHub作者所有專案">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="#">
+    <meta property="og:image" href="images/github_icon.svg">
+
+    <link href="images/github_icon.svg" rel="apple-touch-icon" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="scss/style.css">
+</head>
+<body>
+
+
+
+    <div class="app">
+  
+        <h1>GitHub作者所有專案</h1>
+        
+        <h2>輸入要查詢的作者 : </h2>
+        <input type="text" @keyup.enter="search" v-model="user">
+        
+        <p class="source" v-if="githubUrl !==''">資料來自 : <a v-bind:href=githubUrl target="_blank">{{githubUrl}}</a></p>
+        
+        <h3 v-if="githubUrl !==''">所有專案</h3>
+        
+        <ul>
+          <li v-if="githubUrl !==''" v-for="record in commits">
+            <p>名稱 : <a :href="record.html_url" target="_blank" class="commit">{{record.name}}</a></p>
+            <p>最後更新 : {{record.updated_at}}</p>
+            <p>主要語言 : 
+              <span v-if="record.language !== null">{{record.language}}</span>
+              <span class="no" v-if="record.language == null">無</span>
+            </p>
+            <p>作者 : <a :href="record.owner.html_url" target="_blank" class="commit">{{record.owner.login}}</a></p>
+          </li>
+        </ul>
+        
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="js/all.js"></script>
+</body>
+</html>

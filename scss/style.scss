@@ -1,0 +1,98 @@
+@import 'reset';
+@import './mixin/RWD';
+
+html,body{
+    background: #121212;
+}
+  
+.app{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FFF;
+    h1{
+      font-size: 34px;
+      margin: 30px 5px;
+    }
+    h2{
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    h3{
+      font-size: 18px;
+      width: 50%;
+      line-height: 2.4em;
+      background: #371515;
+      margin: 30px 0 15px;
+      border-radius: 10px;
+      @include mobile-414{
+        margin: 5px 0;
+        width: 95%;
+      }
+    }
+    input{
+      width: 80%;
+      text-align: center;
+      font-size: 20px;
+      padding: 5px;
+      border-radius: 5px;
+      border: 2px solid #0d5904;
+      
+      background: #545151;
+      color: #FFF;
+      &:focus{
+        outline:none;
+        border: 2px solid #64cd51;
+      }
+      @include mobile-767{
+        width: 95%;
+      }
+    }
+    .source{
+      font-size: 18px;
+      margin: 20px 0;
+      a{
+        font-size: 18px;
+        text-decoration: none;
+        color: #a06be3;
+        @include mobile-414{
+          font-size: 14px;
+        }
+      }
+      @include mobile-414{
+        font-size: 14px;
+      }
+    }
+    ul{
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      li{
+        font-size: 18px;
+        padding: 15px;
+        background: #2a2929;
+        margin: 10px 5px;
+        line-height: 1.5em;
+        
+        border-radius: 5px;
+        border: 3px solid #1f1313;
+
+        @include mobile-414{
+          width: 100%;
+        }
+        a{
+          letter-spacing: 3px;
+          text-decoration: none;
+          color: #a06be3;
+        }
+        
+        .no{
+          color: red;
+        }
+      }
+    }
+}
